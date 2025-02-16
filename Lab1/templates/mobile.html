@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мобільний калькулятор мазуту</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Мобільний калькулятор мазуту</h1>
+
+    <nav>
+        <a href="/">Тверде паливо</a> |
+        <a href="/mazut">Мазут</a>
+    </nav>
+
+    <form method="POST">
+        <label>Вуглець (C), %: <input type="text" name="C" required></label><br>
+        <label>Водень (H), %: <input type="text" name="H" required></label><br>
+        <label>Кисень (O), %: <input type="text" name="O" required></label><br>
+        <label>Сірка (S), %: <input type="text" name="S" required></label><br>
+        <label>Вміст ванадію (V), мг/кг: <input type="text" name="V" required></label><br>
+        <label>Вологість (W), %: <input type="text" name="W" required></label><br>
+        <label>Зольність (A), %: <input type="text" name="A" required></label><br>
+        <label>Нижча теплота згоряння горючої маси (Qdaf), МДж/кг: <input type="text" name="Qdaf" required></label><br>
+        <button type="submit">Розрахувати</button>
+    </form>
+
+    {{ if .Input.C }}
+    <h2>Результати розрахунку</h2>
+    <h3>Склад робочої маси</h3>
+    <p>Вуглець (C): {{ printf "%.2f" .Output.C }}%</p>
+    <p>Водень (H): {{ printf "%.2f" .Output.H }}%</p>
+    <p>Кисень (O): {{ printf "%.2f" .Output.O }}%</p>
+    <p>Сірка (S): {{ printf "%.2f" .Output.S }}%</p>
+    <p>Вміст ванадію (V): {{ printf "%.2f" .Qp }} мг/кг</p>
+    <p>Зольність (A): {{ printf "%.2f" .Output.A }}%</p>
+    <p>Вологість (W): {{ printf "%.2f" .Output.W }}%</p>
+
+    <h3>Нижча теплота згоряння</h3>
+    <p>Для робочої маси: {{ printf "%.2f" .Output.V }} МДж/кг</p>
+    {{ end }}
+</body>
+</html>

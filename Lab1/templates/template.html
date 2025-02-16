@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор складу палива</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Веб-калькулятор складу сухої та горючої маси палива</h1>
+
+    <nav>
+        <a href="/">Тверде паливо</a> |
+        <a href="/mazut">Мазут</a>
+    </nav>
+
+    <form method="POST">
+        <label>H, %: <input type="text" name="H" required></label><br>
+        <label>C, %: <input type="text" name="C" required></label><br>
+        <label>S, %: <input type="text" name="S" required></label><br>
+        <label>N, %: <input type="text" name="N" required></label><br>
+        <label>O, %: <input type="text" name="O" required></label><br>
+        <label>W, %: <input type="text" name="W" required></label><br>
+        <label>A, %: <input type="text" name="A" required></label><br>
+        <button type="submit">Розрахувати</button>
+    </form>
+
+    {{ if .Input.H }}
+    <h2>Результати розрахунку</h2>
+    <p><strong>Коефіцієнт переходу від робочої до сухої маси:</strong> {{ printf "%.2f" .KRS }}</p>
+    <p><strong>Коефіцієнт переходу від робочої до горючої маси:</strong> {{ printf "%.2f" .KRG }}</p>
+
+    <h3>Склад сухої маси палива</h3>
+    <p>H: {{ printf "%.2f" .DryComposition.H }}%</p>
+    <p>C: {{ printf "%.2f" .DryComposition.C }}%</p>
+    <p>S: {{ printf "%.2f" .DryComposition.S }}%</p>
+    <p>N: {{ printf "%.2f" .DryComposition.N }}%</p>
+    <p>O: {{ printf "%.2f" .DryComposition.O }}%</p>
+    <p>A: {{ printf "%.2f" .DryComposition.A }}%</p>
+
+    <h3>Склад горючої маси палива</h3>
+    <p>H: {{ printf "%.2f" .CombustibleComposition.H }}%</p>
+    <p>C: {{ printf "%.2f" .CombustibleComposition.C }}%</p>
+    <p>S: {{ printf "%.2f" .CombustibleComposition.S }}%</p>
+    <p>N: {{ printf "%.2f" .CombustibleComposition.N }}%</p>
+    <p>O: {{ printf "%.2f" .CombustibleComposition.O }}%</p>
+
+    <h3>Нижча теплота згоряння</h3>
+    <p>Для робочої маси: {{ printf "%.2f" .QpH }} МДж/кг</p>
+    <p>Для сухої маси: {{ printf "%.2f" .QdH }} МДж/кг</p>
+    <p>Для горючої маси: {{ printf "%.2f" .QdafH }} МДж/кг</p>
+    {{ end }}
+</body>
+</html>
