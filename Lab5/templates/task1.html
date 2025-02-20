@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 1</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Завдання 1: Розрахунок надійності</h2>
+        <form method="POST">
+            <label>Ключі елементів (через пробел):</label>
+            <input type="text" name="elements" required>
+            <label>Значення N:</label>
+            <input type="text" name="nValue" required>
+            <button type="submit">Розрахувати</button>
+        </form>
+        {{if .}}
+        <div class="result">
+            <p>{{.}}</p>
+        </div>
+        {{end}}
+        <a href="/" class="button">Назад</a>
+    </div>
+</body>
+</html>

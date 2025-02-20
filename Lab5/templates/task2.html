@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Завдання 2</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Завдання 2: Розрахунок збитків</h2>
+        <form method="POST">
+            <input type="text" name="omega" placeholder="Частота відмов ω" required>
+            <input type="text" name="tb" placeholder="Середній час відновлення t_b" required>
+            <input type="text" name="Pm" placeholder="Середнє споживання потужності Pm" required>
+            <input type="text" name="Tm" placeholder="Тривалість Tm" required>
+            <input type="text" name="kp" placeholder="Коефіцієнт kp" required>
+            <input type="text" name="zPerA" placeholder="Zпер.а (грн/кВт·год)" required>
+            <input type="text" name="zPerP" placeholder="Zпер.п (грн/кВт·год)" required>
+            <button type="submit">Розрахувати</button>
+        </form>
+        {{if .}}
+        <div class="result">
+            <p>{{.}}</p>
+        </div>
+        {{end}}
+        <a href="/" class="button">Назад</a>
+    </div>
+</body>
+</html>
