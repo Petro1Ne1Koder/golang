@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор Викидів</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Калькулятор Викидів</h2>
+        <form method="POST">
+            <label>Вугілля (в тоннах):</label>
+            <input type="text" name="coal" required>
+            <label>Мазут (в тоннах):</label>
+            <input type="text" name="fuelOil" required>
+            <label>Природний газ (в м³):</label>
+            <input type="text" name="naturalGas" required>
+            <button type="submit">Розрахувати</button>
+        </form>
+        {{if .}}
+        <div class="result">
+            <h3>Результати:</h3>
+            <p>{{.}}</p>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>
