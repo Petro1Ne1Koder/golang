@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Результати розрахунку</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Початкові дані обладнання</h2>
+        <table>
+            <tr>
+                <th>Назва</th>
+                <th>ККД (ηн)</th>
+                <th>cos φ</th>
+                <th>Uн (кВ)</th>
+                <th>Кількість (шт)</th>
+                <th>Номінальна потужність (кВт)</th>
+                <th>КВ</th>
+                <th>tg φ</th>
+            </tr>
+            {{range .Data}}
+            <tr>
+                <td>{{.Name}}</td>
+                <td>{{printf "%.2f" .Efficiency}}</td>
+                <td>{{printf "%.2f" .PowerFactor}}</td>
+                <td>{{printf "%.2f" .Voltage}}</td>
+                <td>{{printf "%.0f" .Quantity}}</td>
+                <td>{{printf "%.2f" .RatedPower}}</td>
+                <td>{{printf "%.2f" .UsageCoefficient}}</td>
+                <td>{{printf "%.2f" .ReactivePowerCoefficient}}</td>
+            </tr>
+            {{end}}
+        </table>
+
+        <h2>Результати розрахунку</h2>
+        <p>Сумарна потужність: {{.TotalPower}}</p>
+        <p>Активна потужність: {{.ActivePower}}</p>
+        <p>Реактивна потужність: {{.ReactivePower}}</p>
+        <p>Повна потужність: {{.FullPower}}</p>
+        <p>Струм: {{.Current}}</p>
+    </div>
+</body>
+</html>

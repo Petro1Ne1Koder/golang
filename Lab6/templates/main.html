@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Розрахунок електричних навантажень</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Дані для розрахунку</h2>
+        <table>
+            <tr><th>Назва</th><th>ККД</th><th>cos φ</th><th>U (кВ)</th><th>К-ть</th><th>Pн (кВт)</th><th>КВ</th><th>tg φ</th></tr>
+            {{range .EPList}}
+            <tr><td>{{.Name}}</td><td>{{.Efficiency}}</td><td>{{.CosPhi}}</td><td>{{.Voltage}}</td><td>{{.Quantity}}</td><td>{{.Power}}</td><td>{{.KV}}</td><td>{{.TgPhi}}</td></tr>
+            {{end}}
+        </table>
+        <h2>Результати розрахунку</h2>
+        <p>Коефіцієнт використання: {{.Kv}}</p>
+        <p>Ефективна кількість ЕП: {{.ne}}</p>
+        <p>Розрахунковий коефіцієнт активної потужності: {{.Kr}}</p>
+        <p>Активне навантаження (Pp): {{.Pp}} кВт</p>
+        <p>Реактивне навантаження (Qp): {{.Qp}} квар</p>
+        <p>Повна потужність (Sp): {{.Sp}} кВА</p>
+        <p>Розрахунковий струм (Ip): {{.Ip}} A</p>
+    </div>
+</body>
+</html>
