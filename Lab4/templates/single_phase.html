@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Однофазний КЗ</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Однофазний КЗ</h2>
+        <form method="POST">
+            <label>Напруга (В):</label>
+            <input type="text" name="voltage" required>
+            <label>Імпеданс (Ом):</label>
+            <input type="text" name="impedance" required>
+            <button type="submit">Розрахувати</button>
+        </form>
+        {{if .}}
+        <div class="result">
+            <p>{{.}}</p>
+        </div>
+        {{end}}
+        <a href="/" class="button">Назад</a>
+    </div>
+</body>
+</html>

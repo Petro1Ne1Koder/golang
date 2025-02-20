@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перевірка стійкості</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Перевірка стійкості</h2>
+        <form method="POST">
+            <label>Ток (А):</label>
+            <input type="text" name="current" required>
+            <label>Тривалість (с):</label>
+            <input type="text" name="duration" required>
+            <button type="submit">Розрахувати</button>
+        </form>
+        {{if .}}
+        <div class="result">
+            <p>{{.}}</p>
+        </div>
+        {{end}}
+        <a href="/" class="button">Назад</a>
+    </div>
+</body>
+</html>
