@@ -18,3 +18,5 @@ func main() {
 	fmt.Println("Сервер запущено на http://localhost:8080")
 	http.ListenAndServe(":8080", nil)
 }
+
+
