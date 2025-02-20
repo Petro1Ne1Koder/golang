@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор Прибутку Сонячної Електростанції</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Калькулятор Прибутку Сонячної Електростанції</h2>
+        <form method="POST">
+            <label for="inputPower">Потужність (МВт):</label>
+            <input type="text" id="inputPower" name="inputPower" required>
+
+            <label for="firstErrorMargin">Перше відхилення (МВт):</label>
+            <input type="text" id="firstErrorMargin" name="firstErrorMargin" required>
+
+            <label for="secondErrorMargin">Друге відхилення (МВт):</label>
+            <input type="text" id="secondErrorMargin" name="secondErrorMargin" required>
+
+            <label for="electricityRate">Вартість електроенергії (грн/кВт·год):</label>
+            <input type="text" id="electricityRate" name="electricityRate" required>
+
+            <button type="submit">Розрахувати прибуток</button>
+        </form>
+
+        {{if .}}
+        <div class="result">
+            <h3>Результати розрахунку:</h3>
+            <p>{{.}}</p>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>
